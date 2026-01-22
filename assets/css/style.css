@@ -1,510 +1,596 @@
-@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+@font-face {
+	font-family: "Latin Modern Math";
+	src: url("../fonts/Latin Modern Math.otf");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Titan One', sans-serif;
-    background: #600000;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    overflow: hidden;
-    padding-top: 20px;
+	margin: 0;
+	padding: 0;
+	font-family: "Latin Modern Math", sans-serif;
+	background: #600000;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	overflow: hidden;
+	padding-top: 20px;
 }
 
 .equation-item {
-    background: linear-gradient(135deg, #4169E1, #FFD700);
-    color: black;
-    padding: 12px 15px;
-    border-radius: 20px;
-    border: 2px solid rgba(0, 0, 0, 0.3);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+	background: linear-gradient(135deg, #4169e1, #ffd700);
+	color: black;
+	padding: 12px 15px;
+	border-radius: 20px;
+	border: 2px solid rgba(0, 0, 0, 0.3);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
 }
 
 .equation-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+	transform: scale(1.05);
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 #instructions {
-    margin-top: 30px;
+	margin-top: 30px;
 }
 
 #shaker {
-    width: 270px;
-    height: 470px;
-    margin-top: 170px;
-    background: linear-gradient(135deg, #FFD700, #F0E68C, #DAA520, #B8860B);
-    clip-path: polygon(30% 0%, 70% 0%, 85% 20%, 85% 80%, 90% 100%, 10% 100%, 15% 80%, 15% 20%);
-    position: relative;
-    cursor: pointer;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.6), inset 0 5px 15px rgba(255,255,255,0.4), inset 0 -5px 15px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-    transform-origin: bottom center;
+	width: 270px;
+	height: 470px;
+	margin-top: 170px;
+	background: linear-gradient(135deg, #ffd700, #f0e68c, #daa520, #b8860b);
+	clip-path: polygon(
+		30% 0%,
+		70% 0%,
+		85% 20%,
+		85% 80%,
+		90% 100%,
+		10% 100%,
+		15% 80%,
+		15% 20%
+	);
+	position: relative;
+	cursor: pointer;
+	box-shadow:
+		0 15px 30px rgba(0, 0, 0, 0.6),
+		inset 0 5px 15px rgba(255, 255, 255, 0.4),
+		inset 0 -5px 15px rgba(0, 0, 0, 0.3);
+	transition: transform 0.3s ease;
+	transform-origin: bottom center;
 }
 
 #shaker::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), transparent 50%);
-    clip-path: polygon(30% 0%, 70% 0%, 85% 20%, 85% 80%, 90% 100%, 10% 100%, 15% 80%, 15% 20%);
+	content: "";
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	right: 10px;
+	bottom: 10px;
+	background: radial-gradient(
+		circle at 30% 30%,
+		rgba(255, 255, 255, 0.6),
+		transparent 50%
+	);
+	clip-path: polygon(
+		30% 0%,
+		70% 0%,
+		85% 20%,
+		85% 80%,
+		90% 100%,
+		10% 100%,
+		15% 80%,
+		15% 20%
+	);
 }
 
 #shaker::after {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 15px;
-    background: linear-gradient(145deg, #FFD700, #DAA520);
-    border-radius: 20px 20px 5px 5px;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.6);
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 40px;
+	height: 15px;
+	background: linear-gradient(145deg, #ffd700, #daa520);
+	border-radius: 20px 20px 5px 5px;
+	box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6);
 }
 
 #popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    z-index: 10000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 0.5s ease,
+		visibility 0.5s ease;
+	z-index: 10000;
 }
 
 #popup.show {
-    opacity: 1;
-    visibility: visible;
+	opacity: 1;
+	visibility: visible;
 }
 
 #bingo-ball {
-    width: 90vmin;
-    height: 90vmin;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: scale(0);
-    transition: transform 0.5s ease;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
+	width: 90vmin;
+	height: 90vmin;
+	border-radius: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transform: scale(0);
+	transition: transform 0.5s ease;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
 }
 
 #bingo-ball.bingo-b {
-    background: radial-gradient(circle, #800000, #FFD700);
-    border: 3px solid #800000;
-    box-shadow: 0 0 20px rgba(128,0,0,0.3), 0 0 40px rgba(0,0,0,0.3);
+	background: radial-gradient(circle, #800000, #ffd700);
+	border: 3px solid #800000;
+	box-shadow:
+		0 0 20px rgba(128, 0, 0, 0.3),
+		0 0 40px rgba(0, 0, 0, 0.3);
 }
 
 #bingo-ball.bingo-i {
-    background: radial-gradient(circle, #FFD700, #800000);
-    border: 3px solid #800000;
-    box-shadow: 0 0 20px rgba(128,0,0,0.3), 0 0 40px rgba(0,0,0,0.3);
+	background: radial-gradient(circle, #ffd700, #800000);
+	border: 3px solid #800000;
+	box-shadow:
+		0 0 20px rgba(128, 0, 0, 0.3),
+		0 0 40px rgba(0, 0, 0, 0.3);
 }
 
 #bingo-ball.bingo-n {
-    background: radial-gradient(circle, #800000, #FFD700);
-    border: 3px solid #800000;
-    box-shadow: 0 0 20px rgba(128,0,0,0.3), 0 0 40px rgba(0,0,0,0.3);
+	background: radial-gradient(circle, #800000, #ffd700);
+	border: 3px solid #800000;
+	box-shadow:
+		0 0 20px rgba(128, 0, 0, 0.3),
+		0 0 40px rgba(0, 0, 0, 0.3);
 }
 
 #bingo-ball.bingo-g {
-    background: radial-gradient(circle, #FFD700, #800000);
-    border: 3px solid #800000;
-    box-shadow: 0 0 20px rgba(128,0,0,0.3), 0 0 40px rgba(0,0,0,0.3);
+	background: radial-gradient(circle, #ffd700, #800000);
+	border: 3px solid #800000;
+	box-shadow:
+		0 0 20px rgba(128, 0, 0, 0.3),
+		0 0 40px rgba(0, 0, 0, 0.3);
 }
 
 #bingo-ball.bingo-o {
-    background: radial-gradient(circle, #800000, #FFD700);
-    border: 3px solid #800000;
-    box-shadow: 0 0 20px rgba(128,0,0,0.3), 0 0 40px rgba(0,0,0,0.3);
+	background: radial-gradient(circle, #800000, #ffd700);
+	border: 3px solid #800000;
+	box-shadow:
+		0 0 20px rgba(128, 0, 0, 0.3),
+		0 0 40px rgba(0, 0, 0, 0.3);
 }
 
 #bingo-ball::before {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 20%;
-    width: 30%;
-    height: 30%;
-    background: radial-gradient(circle, rgba(255,255,255,0.8), transparent);
-    border-radius: 50%;
+	content: "";
+	position: absolute;
+	top: 10%;
+	left: 20%;
+	width: 30%;
+	height: 30%;
+	background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+	border-radius: 50%;
 }
 
 #popup.show #bingo-ball {
-    transform: translate(-50%, -50%) scale(1);
+	transform: translate(-50%, -50%) scale(1);
 }
 
 #letter {
-    font-size: 26vmin;
-    font-weight: bold;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+	font-size: 26vmin;
+	font-weight: bold;
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 #equation {
-    font-size: 13vmin;
-    font-family: 'Oswald', sans-serif;
-    color: white;
-    margin-top: 5px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+	font-size: 13vmin;
+	font-family: "Oswald", sans-serif;
+	color: white;
+	margin-top: 5px;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 #close-btn {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background: #4169E1;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s ease;
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 10px 20px;
+	background: #4169e1;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background 0.3s ease;
 }
 
 #close-btn:hover {
-    background: #00008B;
+	background: #00008b;
 }
 
 .shake {
-    animation: shake 0.6s ease-in-out infinite;
+	animation: shake 0.6s ease-in-out infinite;
 }
 
 #shaker:hover {
-    transform: scale(1.05);
+	transform: scale(1.05);
 }
 
 .fade-in {
-    animation: fadeIn 0.5s ease;
+	animation: fadeIn 0.5s ease;
 }
 
 @keyframes shake {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-10deg); }
-    75% { transform: rotate(10deg); }
+	0%,
+	100% {
+		transform: rotate(0deg);
+	}
+
+	25% {
+		transform: rotate(-10deg);
+	}
+
+	75% {
+		transform: rotate(10deg);
+	}
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes slideIn {
-    from { transform: translateX(100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
 }
 
 #toggle-panel {
-    position: fixed;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: linear-gradient(135deg, #FFD700, #FFFFFF);
-    color: black;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px 0 0 5px;
-    z-index: 1001;
-    transition: right 0.3s ease;
-    font-size: 18px;
+	position: fixed;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: linear-gradient(135deg, #ffd700, #ffffff);
+	color: black;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 5px 0 0 5px;
+	z-index: 1001;
+	transition: right 0.3s ease;
+	font-size: 18px;
 }
 
 #toggle-panel.open {
-    right: 310px;
+	right: 310px;
 }
 
 #side-panel {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    background: linear-gradient(135deg, #FFD700, #FFFFFF);
-    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 300px;
+	height: 100%;
+	background: linear-gradient(135deg, #ffd700, #ffffff);
+	box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+	transform: translateX(100%);
+	transition: transform 0.3s ease;
+	z-index: 1000;
+	display: flex;
+	flex-direction: column;
 }
 
 #side-panel.open {
-    transform: translateX(0);
+	transform: translateX(0);
 }
 
 #drawn-balls {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+	flex: 1;
+	overflow-y: auto;
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .bingo-ball {
-    width: 200px;
-    height: 200px;
-    min-height: 200px;
-    align-self: center;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    animation: slideIn 0.5s ease;
-    position: relative;
+	width: 200px;
+	height: 200px;
+	min-height: 200px;
+	align-self: center;
+	border-radius: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	animation: slideIn 0.5s ease;
+	position: relative;
 }
 
 .bingo-ball::before {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 20%;
-    width: 30%;
-    height: 30%;
-    background: radial-gradient(circle, rgba(255,255,255,0.4), transparent);
-    border-radius: 50%;
+	content: "";
+	position: absolute;
+	top: 10%;
+	left: 20%;
+	width: 30%;
+	height: 30%;
+	background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+	border-radius: 50%;
 }
 
 .ball-letter {
-    font-size: 60px;
-    margin-bottom: 10px;
+	font-size: 60px;
+	margin-bottom: 10px;
 }
 
 .ball-equation {
-    font-size: 30px;
-    font-family: 'Oswald', sans-serif;
-    text-align: center;
+	font-size: 30px;
+	font-family: "Oswald", sans-serif;
+	text-align: center;
 }
 
 .bingo-b {
-    background: linear-gradient(135deg, #800000, #FFD700);
+	background: linear-gradient(135deg, #800000, #ffd700);
 }
 
 .bingo-i {
-    background: linear-gradient(135deg, #FFD700, #800000);
+	background: linear-gradient(135deg, #ffd700, #800000);
 }
 
 .bingo-n {
-    background: linear-gradient(135deg, #800000, #FFD700);
+	background: linear-gradient(135deg, #800000, #ffd700);
 }
 
 .bingo-g {
-    background: linear-gradient(135deg, #FFD700, #800000);
+	background: linear-gradient(135deg, #ffd700, #800000);
 }
 
 .bingo-o {
-    background: linear-gradient(135deg, #800000, #FFD700);
+	background: linear-gradient(135deg, #800000, #ffd700);
 }
 
 #header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
 }
 
 .header-logo {
-    width: 80px;
-    height: auto;
-    margin: 0 10px;
+	width: 80px;
+	height: auto;
+	filter: drop-shadow(0px 5px 10px black);
+	margin: 0 10px;
 }
 
 .math-logo {
-    width: 55px;
-    margin-top: -10px;
+	width: 55px;
+	margin-top: -10px;
 }
 
 #title {
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 2.5em;
-    font-family: 'Times New Roman', serif;
-    color: #FFFF00;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    z-index: 10;
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 2.5em;
+	font-family: "Times New Roman", serif;
+	color: #ffff00;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+	z-index: 10;
 }
 
 #instructions {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.2em;
-    font-family: 'Times New Roman', serif;
-    color: #FFFFFF;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    z-index: 10;
-    text-align: center;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 1.2em;
+	font-family: "Times New Roman", serif;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	z-index: 10;
+	text-align: center;
 }
 
 #drawn-equations {
-    position: absolute;
-    top: 120px;
-    left: 20px;
-    right: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
+	position: absolute;
+	top: 120px;
+	left: 20px;
+	right: 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 10px;
 }
 
-
 #reset-btn {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #FFD700, #FFFFFF);
-    color: black;
-    border: 2px solid rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: 'Times New Roman', serif;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	padding: 10px 20px;
+	background: linear-gradient(135deg, #ffd700, #ffffff);
+	color: black;
+	border: 2px solid rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "Latin Modern Math", serif;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #reset-btn:hover {
-    background: linear-gradient(135deg, #DAA520, #FFD700);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+	background: linear-gradient(135deg, #daa520, #ffd700);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 #round-select {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 10px 35px 10px 15px;
-    background: linear-gradient(135deg, #800000, #5a0000);
-    color: #FFD700;
-    border: 2px solid #FFD700;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: 'Times New Roman', serif;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23FFD700" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding: 10px 35px;
+	background: linear-gradient(135deg, #800000, #5a0000);
+	color: #ffd700;
+	border: 2px solid #ffd700;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	font-family: "Latin Modern Math", sans-serif;
+	font-weight: bold;
+	transition: all 0.3s ease-in-out;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	
+	    background-image:
+      linear-gradient(45deg, #0000 50%, currentColor 50%),
+      linear-gradient(135deg, currentColor 50%, #0000 50%);
+    background-position:
+      calc(100% - 20px) calc(1px + 50%),
+      calc(100% - 16.1px) calc(1px + 50%);
+    background-size:
+      4px 4px,
+      4px 4px;
     background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 16px;
 }
 
 #round-select option {
-    background: #ffffff;
-    color: #5a0000;
-    font-weight: bold;
+	background: #ffffff;
+	color: #5a0000;
+	font-weight: bold;
 }
 
-
 #round-select:hover {
-    background: linear-gradient(135deg, #DAA520, #FFD700);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+	background-color: #daa520;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+	color: black;
 }
 
 #round-select:focus {
-    outline: none;
-    border-color: #FFD700;
+	outline: none;
+	border-color: #ffd700;
 }
 
 #round-select option {
-    color: black;
-    background: #FFD700;
-    padding: 5px;
+	color: black;
+	background: #ffd700;
+	padding: 5px;
 }
 
 #round-select.open {
-    right: 320px;
+	right: 320px;
 }
 
 @media (max-width: 768px) {
-    #header-logo {
-        width: 60px;
-    }
-    #title {
-        font-size: 2em;
-        top: 40px;
-    }
-    #instructions {
-        font-size: 1em;
-        top: 100px;
-    }
-    #side-panel {
-        width: 250px;
-    }
-    #toggle-panel.open {
-        right: 260px;
-    }
-    .bingo-ball {
-        width: 150px;
-        height: 150px;
-        min-height: 150px;
-        align-self: center;
-    }
-    .ball-letter {
-        font-size: 45px;
-        margin-bottom: 10px;
-    }
-    .ball-equation {
-        font-size: 22px;
-    }
-    #shaker {
-        width: 100px;
-        height: 250px;
-    }
-    #shaker::after {
-        width: 25px;
-        height: 15px;
-    }
-    #bingo-ball {
-        width: 80vmin;
-        height: 80vmin;
-    }
-    #letter {
-        font-size: 22vmin;
-    }
-    #equation {
-        font-size: 11vmin;
-    }
+	#header-logo {
+		width: 60px;
+	}
+
+	#title {
+		font-size: 2em;
+		top: 40px;
+	}
+
+	#instructions {
+		font-size: 1em;
+		top: 100px;
+	}
+
+	#side-panel {
+		width: 250px;
+	}
+
+	#toggle-panel.open {
+		right: 260px;
+	}
+
+	.bingo-ball {
+		width: 150px;
+		height: 150px;
+		min-height: 150px;
+		align-self: center;
+	}
+
+	.ball-letter {
+		font-size: 45px;
+		margin-bottom: 10px;
+	}
+
+	.ball-equation {
+		font-size: 22px;
+	}
+
+	#shaker {
+		width: 100px;
+		height: 250px;
+	}
+
+	#shaker::after {
+		width: 25px;
+		height: 15px;
+	}
+
+	#bingo-ball {
+		width: 80vmin;
+		height: 80vmin;
+	}
+
+	#letter {
+		font-size: 22vmin;
+	}
+
+	#equation {
+		font-size: 11vmin;
+	}
 }
