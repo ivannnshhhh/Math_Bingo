@@ -88,9 +88,6 @@ shaker.addEventListener('click', () => {
             popup.classList.add('show');
             soundManager.playPopupAppear();
             drawnEquations.push({letter: letter, equation: equation});
-            if (drawnEquations.length > 12) {
-                drawnEquations.shift();
-            }
             updateDrawnBalls();
         }, 3000);
     }, 500);
@@ -141,3 +138,4 @@ function updateDrawnBalls() {
         drawnBalls.appendChild(ball);
     });
 }
+
