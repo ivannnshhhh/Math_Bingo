@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Randomizer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- <div id="header">
+        <img src="assets/images/mathclub.jpg" alt="Math Club Logo" class="header-logo math-logo">
+        <img src="assets/images/byte.png" alt="Byte Logo" class="header-logo"> -->
+    </div>
+    <h1 id="title">Math Bingo</h1>
+    <p id="instructions">Click the bottle to draw a bingo expression!</p>
+    <div id="shaker"></div>
+    <button id="reset-btn">Reset Round</button>
+    <div id="round-select-container">
+        <div id="round-select" tabindex="0">
+            <span id="round-select-text">Select Round</span>
+            <span id="round-select-arrow">▼</span>
+        </div>
+        <div id="round-select-dropdown" class="hidden">
+            <div class="round-option" data-value="1">Round 1</div>
+            <div class="round-option" data-value="2">Round 2</div>
+            <div class="round-option" data-value="3">Round 3</div>
+            <div class="round-option" data-value="4">Round 4</div>
+            <div class="round-option" data-value="5">Round 5</div>
+        </div>
+    </div>
+    <button id="toggle-panel">▶</button>
+    <div id="side-panel" class="hidden">
+        <div id="side-panel-header">
+            <span>Drawn Math Equations</span>
+            <button id="manage-equations-btn" class="manage-btn" aria-label="Manage equation pool" title="Manage equation pool">
+                <span class="manage-icon" style="color: #FFD700;">⚙</span>
+                <span class="manage-text" style="color: #FFD700;">Manage</span>
+            </button>
+        </div>
+        <div id="drawn-balls"></div>
+    </div>
+    <div id="popup" class="hidden">
+        <div id="bingo-ball">
+            <div id="letter"></div>
+            <div id="equation"></div>
+        </div>
+        <button id="close-btn">Close</button>
+    </div>
+    
+    <!-- Manage Equations Modal -->
+    <div id="manage-equations-modal" class="modal hidden">
+        <div class="modal-content modal-large">
+            <h2>Manage Equations</h2>
+            <div id="modal-round-selector">
+                <label>Select Round:</label>
+                <select id="modal-round-select">
+                    <option value="1">Round 1</option>
+                    <option value="2">Round 2</option>
+                    <option value="3">Round 3</option>
+                    <option value="4">Round 4</option>
+                    <option value="5">Round 5</option>
+                </select>
+            </div>
+            <div id="equations-columns-container">
+                <div class="equation-column" data-letter="B">
+                    <div class="column-header column-b">B</div>
+                    <div class="column-list" id="column-B"></div>
+                    <div class="column-add-form">
+                        <input type="text" placeholder="Add equation..." data-letter="B">
+                        <button class="add-col-btn" data-letter="B">+</button>
+                    </div>
+                </div>
+                <div class="equation-column" data-letter="I">
+                    <div class="column-header column-i">I</div>
+                    <div class="column-list" id="column-I"></div>
+                    <div class="column-add-form">
+                        <input type="text" placeholder="Add equation..." data-letter="I">
+                        <button class="add-col-btn" data-letter="I">+</button>
+                    </div>
+                </div>
+                <div class="equation-column" data-letter="N">
+                    <div class="column-header column-n">N</div>
+                    <div class="column-list" id="column-N"></div>
+                    <div class="column-add-form">
+                        <input type="text" placeholder="Add equation..." data-letter="N">
+                        <button class="add-col-btn" data-letter="N">+</button>
+                    </div>
+                </div>
+                <div class="equation-column" data-letter="G">
+                    <div class="column-header column-g">G</div>
+                    <div class="column-list" id="column-G"></div>
+                    <div class="column-add-form">
+                        <input type="text" placeholder="Add equation..." data-letter="G">
+                        <button class="add-col-btn" data-letter="G">+</button>
+                    </div>
+                </div>
+                <div class="equation-column" data-letter="O">
+                    <div class="column-header column-o">O</div>
+                    <div class="column-list" id="column-O"></div>
+                    <div class="column-add-form">
+                        <input type="text" placeholder="Add equation..." data-letter="O">
+                        <button class="add-col-btn" data-letter="O">+</button>
+                    </div>
+                </div>
+            </div>
+            <button id="clear-round-btn">Clear Round</button>
+            <div class="modal-actions">
+                <button id="cancel-modal-btn">Cancel</button>
+                <button id="save-changes-btn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification Toast -->
+    <div id="notification" class="notification hidden"></div>
+    
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
